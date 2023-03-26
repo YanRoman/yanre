@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/registration.css}">
+
+  <title>Title</title>
+</head>
+
+<!--<div th:if="${message}">
+  <p style="color: red" th:text="${message}"></p>
+</div>-->
+
+<form th:action="@{/registration}" th:object="${user}" method="post" class="wrapper">
+  <div class="form__title">
+    <h1>Регистрация</h1>
+  </div>
+  <div class="input-data">
+    <input id="username" name="username" type="text" required>
+    <div class="underline"></div>
+    <label for="username">Email</label>
+  </div>
+
+  <div class="input-data">
+    <input id="password" name="password" type="password" required>
+    <div class="underline"></div>
+    <label for="password">Пароль</label>
+  </div>
+
+  <div class="input-data">
+    <input id="passwordConfirm" name="passwordConfirm" type="password" required>
+    <div class="underline"></div>
+    <label for="passwordConfirm">Подтвердите пароль</label>
+  </div>
+
+  <button type="submit" class="ripple__btn">Зарегистрироваться</button>
+
+  <script>
+    const btn = document.querySelector('.ripple__btn');
+
+    btn.onmousemove = function(e){
+      const x = e.pageX - btn.offsetLeft;
+      const y = e.pageY - btn.offsetTop;
+      btn.style.setProperty('--x', x + 'px')
+      btn.style.setProperty('--y', y + 'px')
+    }
+  </script>
+
+</form>
+</html>

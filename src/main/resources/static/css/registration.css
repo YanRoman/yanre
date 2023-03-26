@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.wrapper{
+    width: 450px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+}
+.wrapper .input-data{
+    margin: 10px 0;
+    height: 40px;
+    width: 100%;
+    position: relative;
+}
+.wrapper .input-data input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid silver;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+    transform: translateY(-20px);
+    font-size: 15px;
+    color: black;
+}
+.wrapper .input-data label{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: grey;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+.input-data .underline{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+}
+.input-data .underline::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .3s ease;
+}
+.input-data input:focus ~ .underline::before,
+.input-data input:valid ~ .underline::before{
+    transform:scaleX(1);
+}
+.form__title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+.ripple__btn{
+    margin: 20px 0;
+    position: relative;
+    display: inline-flex;
+    padding: 20px 40px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #ffffff;
+    border: none;
+    background-color: rgb(16,16,16);
+
+    transition: all ease 1s;
+    overflow: hidden;
+    --x : --x;
+    --y : --y;
+    justify-content: center;
+    align-items: center;
+}
+.ripple__btn span{
+    position: relative;
+    z-index: 1;
+}
+.ripple__btn::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: var(--x);
+    top: var(--y);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    transition: all ease .5s;
+}
+.ripple__btn:hover::before{
+    width: 400px;
+    height: 400px;
+}
+
+

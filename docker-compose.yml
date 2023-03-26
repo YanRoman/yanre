@@ -3,15 +3,14 @@ version: '3'
 services:
   postgresql:
     container_name: postgresql
-    image: postgres:12.2-alpine
+    image: postgres
     environment:
+      POSTGRES_DB: yanredb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     restart: always
-    volumes:
-      - ./init:/docker-entrypoint-initdb.d/
 
   app:
     container_name: spring-boot-app
@@ -27,5 +26,3 @@ services:
       - "8080"
     depends_on:
       - postgresql
-    restart: always
-
